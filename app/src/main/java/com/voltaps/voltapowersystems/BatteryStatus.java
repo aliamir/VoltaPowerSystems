@@ -74,7 +74,7 @@ public class BatteryStatus extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_battery_status, container, false);
 
-        BatteryAttribute soc = new BatteryAttribute("SOC", "percent");
+        BatteryAttribute soc = new BatteryAttribute("SOC", "99.99", "%");
         batteryInfo = new ArrayList<>();
 
         // TODO: remove

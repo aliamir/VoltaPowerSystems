@@ -16,11 +16,11 @@ public class TwoItemListAdapter extends BaseAdapter {
 
     private Context context;
     private int layoutResourceID;
-    private ArrayList<BatteryAttribute> devices;
+    private ArrayList<BatteryAttribute> attributes;
 
-    TwoItemListAdapter(Context context, int resource, ArrayList<BatteryAttribute> devices) {
+    TwoItemListAdapter(Context context, int resource, ArrayList<BatteryAttribute> attributes) {
         this.context = context;
-        this.devices = devices;
+        this.attributes = attributes;
         layoutResourceID = resource;
     }
 
@@ -31,7 +31,7 @@ public class TwoItemListAdapter extends BaseAdapter {
      */
     @Override
     public int getCount() {
-        return devices.size();
+        return attributes.size();
     }
 
     /**
@@ -43,7 +43,7 @@ public class TwoItemListAdapter extends BaseAdapter {
      */
     @Override
     public Object getItem(int position) {
-        return devices.get(position);
+        return attributes.get(position);
     }
 
     /**
@@ -75,14 +75,17 @@ public class TwoItemListAdapter extends BaseAdapter {
         }
 
         // Find the device
-        BatteryAttribute currentDevice = devices.get(position);
+        BatteryAttribute currentDevice = attributes.get(position);
 
         // Fill the View (show the data from the BatteryAttribute class)
-        TextView dNameText = itemView.findViewById(R.id.attribute);
-        dNameText.setText(currentDevice.getName());
+        TextView dAttributeText = itemView.findViewById(R.id.attribute);
+        dAttributeText.setText(currentDevice.getAttribute());
 
-        TextView dAddressText = itemView.findViewById(R.id.value);
-        dAddressText.setText(currentDevice.getAddress());
+        TextView dValueText = itemView.findViewById(R.id.value);
+        dValueText.setText(currentDevice.getValue());
+
+        TextView dUnitText = itemView.findViewById(R.id.unit);
+        dUnitText.setText(currentDevice.getUnit());
 
         // Return the View
         return itemView;

@@ -2,43 +2,37 @@ package com.voltaps.voltapowersystems;
 
 public class BatteryAttribute{
     private String name;
-    private String address;
-    public final String[] serviceStrings = {
-            "bleDevice",
-            "remapCmd",
-            "LedCmd"};
+    private String value;
+    private String unit;
 
-    public enum serviceStringsIndex {
-        BLEDEVICE,
-        CONNECTION_STATUS,
-        ACK_REMAP_CMD,
-        ACK_LED_CMD,
-        ACK_REFLASH_CMD,
-        REMAP_CMD,
-        LED_CMD,
-        REFLASH_CMD
-
-    }
-
-    public BatteryAttribute(String name, String address) {
+    public BatteryAttribute(String attribute, String value, String unit) {
         super();
-        this.name = name;
-        this.address = address;
+        this.name = attribute;
+        this.value = value;
+        this.unit = unit;
     }
 
-    public String getName() {
+    public String getAttribute() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setAttribute(String name) {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getValue() {
+        return value;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 }
