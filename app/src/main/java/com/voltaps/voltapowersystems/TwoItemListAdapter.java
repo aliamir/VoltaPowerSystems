@@ -78,10 +78,10 @@ public class TwoItemListAdapter extends BaseAdapter {
         BatteryAttribute currentDevice = devices.get(position);
 
         // Fill the View (show the data from the BatteryAttribute class)
-        TextView dNameText = itemView.findViewById(R.id.name);
+        TextView dNameText = itemView.findViewById(R.id.attribute);
         dNameText.setText(currentDevice.getName());
 
-        TextView dAddressText = itemView.findViewById(R.id.address);
+        TextView dAddressText = itemView.findViewById(R.id.value);
         dAddressText.setText(currentDevice.getAddress());
 
         // Return the View
