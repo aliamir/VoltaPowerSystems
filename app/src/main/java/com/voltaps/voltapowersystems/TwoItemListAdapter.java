@@ -16,9 +16,9 @@ public class TwoItemListAdapter extends BaseAdapter {
 
     private Context context;
     private int layoutResourceID;
-    private ArrayList<BleDevice> devices;
+    private ArrayList<BatteryAttribute> devices;
 
-    TwoItemListAdapter(Context context, int resource, ArrayList<BleDevice> devices) {
+    TwoItemListAdapter(Context context, int resource, ArrayList<BatteryAttribute> devices) {
         this.context = context;
         this.devices = devices;
         layoutResourceID = resource;
@@ -75,9 +75,9 @@ public class TwoItemListAdapter extends BaseAdapter {
         }
 
         // Find the device
-        BleDevice currentDevice = devices.get(position);
+        BatteryAttribute currentDevice = devices.get(position);
 
-        // Fill the View (show the data from the BleDevice class)
+        // Fill the View (show the data from the BatteryAttribute class)
         TextView dNameText = itemView.findViewById(R.id.name);
         dNameText.setText(currentDevice.getName());
 

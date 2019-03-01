@@ -33,7 +33,7 @@ public class BatteryStatus extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     // List Battery info
-    ArrayList<BleDevice> batteryInfo;
+    ArrayList<BatteryAttribute> batteryInfo;
     private TwoItemListAdapter batteryInfoListAdapter;
     private ListView listOfBatteryInfoView;
 
@@ -74,13 +74,14 @@ public class BatteryStatus extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_battery_status, container, false);
 
-        BleDevice soc = new BleDevice("SOC", "percent");
+        BatteryAttribute soc = new BatteryAttribute("SOC", "percent");
         batteryInfo = new ArrayList<>();
 
+        // TODO: remove
         batteryInfo.add(soc);
 
-        batteryInfoListAdapter = new TwoItemListAdapter(getContext(), R.layout.list_devices, batteryInfo);
-        listOfBatteryInfoView = view.findViewById(R.id.list_bt_devices);
+        batteryInfoListAdapter = new TwoItemListAdapter(getContext(), R.layout.list_battery_attributes, batteryInfo);
+        listOfBatteryInfoView = view.findViewById(R.id.list_battery_info);
         listOfBatteryInfoView.setAdapter(batteryInfoListAdapter);
 
         return view;

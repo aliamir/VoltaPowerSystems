@@ -1,6 +1,6 @@
 package com.voltaps.voltapowersystems;
 
-public class BleDevice{
+public class BatteryAttribute{
     private String name;
     private String address;
     public final String[] serviceStrings = {
@@ -20,7 +20,7 @@ public class BleDevice{
 
     }
 
-    public BleDevice(String name, String address) {
+    public BatteryAttribute(String name, String address) {
         super();
         this.name = name;
         this.address = address;
