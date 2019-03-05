@@ -7,20 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-
-import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link BatteryStatus.OnFragmentInteractionListener} interface
+ * {@link PerformanceFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link BatteryStatus#newInstance} factory method to
+ * Use the {@link PerformanceFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BatteryStatus extends Fragment {
+public class PerformanceFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,12 +29,7 @@ public class BatteryStatus extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    // List Battery info
-    ArrayList<BatteryAttribute> batteryInfo;
-    private TwoItemListAdapter batteryInfoListAdapter;
-    private ListView listOfBatteryInfoView;
-
-    public BatteryStatus() {
+    public PerformanceFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +39,11 @@ public class BatteryStatus extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BatteryStatus.
+     * @return A new instance of fragment PerformanceFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BatteryStatus newInstance(String param1, String param2) {
-        BatteryStatus fragment = new BatteryStatus();
+    public static PerformanceFragment newInstance(String param1, String param2) {
+        PerformanceFragment fragment = new PerformanceFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,19 +64,7 @@ public class BatteryStatus extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_battery_status, container, false);
-
-        BatteryAttribute soc = new BatteryAttribute("SOC", "99.99", "%");
-        batteryInfo = new ArrayList<>();
-
-        // TODO: remove
-        batteryInfo.add(soc);
-
-        batteryInfoListAdapter = new TwoItemListAdapter(getContext(), R.layout.list_battery_attributes, batteryInfo);
-        listOfBatteryInfoView = view.findViewById(R.id.list_battery_info);
-        listOfBatteryInfoView.setAdapter(batteryInfoListAdapter);
-
-        return view;
+        return inflater.inflate(R.layout.fragment_performance, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
