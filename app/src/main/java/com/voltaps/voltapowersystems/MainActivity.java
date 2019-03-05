@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_battery_status) {
             // Handle the battery status fragment
         } else if (id == R.id.nav_performance) {
-
+            AddPerformanceFragment();
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_send) {
@@ -93,6 +93,15 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         BatteryStatusFragment batteryStatus = new BatteryStatusFragment();
         fragmentTransaction.add(R.id.fragmentContainer, batteryStatus);
+        fragmentTransaction.commit();
+    }
+
+
+    private void AddPerformanceFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        PerformanceFragment performanceFragment = new PerformanceFragment();
+        fragmentTransaction.add(R.id.fragmentContainer, performanceFragment);
         fragmentTransaction.commit();
     }
 
