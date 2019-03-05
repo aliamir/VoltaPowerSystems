@@ -14,7 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, BatteryStatusFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        BatteryStatusFragment.OnFragmentInteractionListener,
+        PerformanceFragment.OnFragmentInteractionListener {
+
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        fragmentManager = getSupportFragmentManager();
         AddBatteryStatusFragment();
     }
 
@@ -75,6 +81,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_battery_status) {
             // Handle the battery status fragment
+            ReplaceBatteryStatusFragment();
         } else if (id == R.id.nav_performance) {
             AddPerformanceFragment();
         } else if (id == R.id.nav_settings) {
@@ -89,19 +96,27 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void AddBatteryStatusFragment() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         BatteryStatusFragment batteryStatus = new BatteryStatusFragment();
         fragmentTransaction.add(R.id.fragmentContainer, batteryStatus);
+        //fragmentTransaction.addToBackStack("homeScreen");
+        fragmentTransaction.commit();
+    }
+
+    private void ReplaceBatteryStatusFragment() {
+        fragmentTransaction = fragmentManager.beginTransaction();
+        BatteryStatusFragment batteryStatus = new BatteryStatusFragment();
+        fragmentTransaction.replace(R.id.fragmentContainer, batteryStatus);
+        fragmentManager.popBackStack();
         fragmentTransaction.commit();
     }
 
 
     private void AddPerformanceFragment() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         PerformanceFragment performanceFragment = new PerformanceFragment();
-        fragmentTransaction.add(R.id.fragmentContainer, performanceFragment);
+        fragmentTransaction.replace(R.id.fragmentContainer, performanceFragment);
+        fragmentTransaction.addToBackStack("performanceScreen");
         fragmentTransaction.commit();
     }
 
