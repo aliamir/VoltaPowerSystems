@@ -100,7 +100,7 @@ public class PerformanceFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         PieChart();
-        //LineGraph();
+        LineGraph();
     }
 
     private void PieChart(){
@@ -114,13 +114,13 @@ public class PerformanceFragment extends Fragment {
         pie.data(data);
 
         AnyChartView anyChartView1 = (AnyChartView) getView().findViewById(R.id.any_chart_view1);
-        //APIlib.getInstance().setActiveAnyChartView(anyChartView1);
+        APIlib.getInstance().setActiveAnyChartView(anyChartView1);
         anyChartView1.setChart(pie);
     }
 
-    /*private void LineGraph() {
+    private void LineGraph() {
         AnyChartView anyChartView2 = getView().findViewById(R.id.any_chart_view2);
-        //APIlib.getInstance().setActiveAnyChartView(anyChartView2);
+        APIlib.getInstance().setActiveAnyChartView(anyChartView2);
         //anyChartView.setProgressBar(getView().findViewById(R.id.progress_bar));
 
         Cartesian cartesian = AnyChart.line();
@@ -215,7 +215,7 @@ public class PerformanceFragment extends Fragment {
         cartesian.legend().padding(0d, 0d, 10d, 0d);
 
         anyChartView2.setChart(cartesian);
-    }*/
+    }
 
     @Override
     public void onAttach(Context context) {
