@@ -30,20 +30,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-            <com.anychart.AnyChartView
-                android:id="@+id/any_chart_view2"
-                android:layout_width="match_parent"
-                android:layout_height="300dp" />
+        <com.anychart.AnyChartView
+            android:id="@+id/any_chart_view1"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-            <com.anychart.AnyChartView
-                android:id="@+id/any_chart_view1"
+        <com.anychart.AnyChartView
+                android:id="@+id/any_chart_view2"
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
-
+                android:layout_height="400dp" />
 
 </TableLayout>
 </ScrollView>
